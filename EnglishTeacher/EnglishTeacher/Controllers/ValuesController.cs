@@ -4,13 +4,21 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.Cors;
+using System.Web.Script.Services;
+using System.Web.Services;
 
 namespace EnglishTeacher.Controllers
 {
-    [Authorize]
+
+    //   [EnableCors(origins: "http://localhost:54049", headers: "*", methods: "*")]
+   // [EnableCors(origins: "http://localhost:54049", headers: "*", methods: "*")]
+ //   idmkbfegdginpeohickgddcmannkbdjk
+    
     public class ValuesController : ApiController
     {
         // GET api/values
+        [HttpGet]
         public IEnumerable<string> Get()
         {
             return new string[] { "value1", "value2" };
@@ -35,6 +43,11 @@ namespace EnglishTeacher.Controllers
         // DELETE api/values/5
         public void Delete(int id)
         {
+        }
+        [HttpOptions]
+        public void Options()
+        {
+
         }
     }
 }

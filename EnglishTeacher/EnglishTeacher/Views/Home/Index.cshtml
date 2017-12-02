@@ -1,6 +1,7 @@
 ﻿<div class="userInfo" style="display:none;">
     <p>Вы вошли как: <span class="userName"></span></p>
     <input type="button" value="Выйти" id="logOut" />
+    <input type="submit" id="getItemsButton" value="Получить данные" />
 </div>
 <div class="loginForm">
     <h3>Вход на сайт</h3>
@@ -33,8 +34,9 @@
                 $.ajax({
                     type: 'POST',
                     url: '/api/Account/Register',
-                    contentType: 'application/json; charset=utf-8',
-                    data: JSON.stringify(data)
+                    contentType: 'application/jsonp; charset=utf-8',
+                    dataType: 'jsonp',
+                    data: JSONP.stringify(data)                 
                 }).success(function (data) {
                     alert("Регистрация пройдена");
                 }).fail(function (data) {
@@ -69,6 +71,26 @@
             $('#logOut').click(function (e) {
                 e.preventDefault();
                 sessionStorage.removeItem(tokenKey);
+            });
+
+            $('#getItemsButton').click(function (e) {
+                e.preventDefault();
+                $.ajax({
+                    type: 'GET',
+                    url: '/api/values/',
+                    dataType: 'jsonp',
+                    beforeSend: function (xhr) {
+
+                        var token = sessionStorage.getItem(tokenKey);
+                        xhr.setRequestHeader("Authorization", "Bearer " + token);
+                    },
+                    success: function (data) {
+                        alert(data);
+                    },
+                    fail: function (data) {
+                        alert(data);
+                    }
+                });
             });
         })
     </script>

@@ -67,6 +67,26 @@ $(function () {
         e.preventDefault();
         sessionStorage.removeItem(tokenKey);
     });
+
+    $('#getItemsButton').click(function (e) {
+        e.preventDefault();
+        $.ajax({
+            type: 'GET',
+            url: 'http://localhost:54049/api/values/',
+       //     datatype: 'jsonp',
+            beforeSend: function (xhr) {     
+                var token = sessionStorage.getItem(tokenKey);
+                console.log(token);
+                xhr.setRequestHeader("Authorization", "Bearer " + token);
+            },
+            success: function (data) {
+                alert(data);
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                alert(jqXHR.responseText || textStatus);
+            }
+        });
+    });
 })
 //document.addEventListener('DOMContentLoaded', function () {
 //    document.querySelector('#submitLogin').addEventListener('click', clickHandler);

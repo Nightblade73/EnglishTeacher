@@ -100,3 +100,8 @@ C:\Users\1\Documents\GitHub\EnglishTeacher\EnglishTeacher\EnglishTeacher\obj\Deb
 C:\Users\1\Documents\GitHub\EnglishTeacher\EnglishTeacher\EnglishTeacher\obj\Debug\EnglishTeacher.csproj.CoreCompileInputs.cache
 C:\Users\1\Documents\GitHub\EnglishTeacher\EnglishTeacher\EnglishTeacher\obj\Debug\EnglishTeacher.dll
 C:\Users\1\Documents\GitHub\EnglishTeacher\EnglishTeacher\EnglishTeacher\obj\Debug\EnglishTeacher.pdb
+C:\Users\1\Documents\GitHub\EnglishTeacher\EnglishTeacher\EnglishTeacher\bin\WebApiContrib.Formatting.Jsonp.dll
+C:\Users\1\Documents\GitHub\EnglishTeacher\EnglishTeacher\EnglishTeacher\bin\WebApiContrib.Formatting.Jsonp.pdb
+C:\Users\1\Documents\GitHub\EnglishTeacher\EnglishTeacher\EnglishTeacher\bin\System.Web.Cors.dll
+C:\Users\1\Documents\GitHub\EnglishTeacher\EnglishTeacher\EnglishTeacher\bin\System.Web.Http.Cors.dll
+C:\Users\1\Documents\GitHub\EnglishTeacher\EnglishTeacher\EnglishTeacher\bin\System.Web.Http.Cors.xml
