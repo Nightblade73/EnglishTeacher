@@ -29,7 +29,7 @@ $(function () {
 
         $.ajax({
             type: 'POST',
-            url: 'http://localhost:54049/api/Account/Register',
+            url: 'http://localhost:54049/api/Account/Register/',
             contentType: 'application/json; charset=utf-8',
             data: JSON.stringify(data)
         }).success(function (data) {

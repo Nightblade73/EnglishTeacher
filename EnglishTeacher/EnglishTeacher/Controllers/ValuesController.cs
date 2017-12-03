@@ -12,9 +12,9 @@ namespace EnglishTeacher.Controllers
 {
 
     //   [EnableCors(origins: "http://localhost:54049", headers: "*", methods: "*")]
-   // [EnableCors(origins: "http://localhost:54049", headers: "*", methods: "*")]
- //   idmkbfegdginpeohickgddcmannkbdjk
-    
+    // [EnableCors(origins: "http://localhost:54049", headers: "*", methods: "*")]
+    //   idmkbfegdginpeohickgddcmannkbdjk
+  //  [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class ValuesController : ApiController
     {
         // GET api/values

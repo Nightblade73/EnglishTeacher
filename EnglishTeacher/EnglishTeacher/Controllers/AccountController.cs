@@ -16,11 +16,13 @@ using Microsoft.Owin.Security.OAuth;
 using EnglishTeacher.Models;
 using EnglishTeacher.Providers;
 using EnglishTeacher.Results;
+using System.Web.Http.Cors;
 
 namespace EnglishTeacher.Controllers
 {
     [Authorize]
     [RoutePrefix("api/Account")]
+   // [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class AccountController : ApiController
     {
         private const string LocalLoginProvider = "Local";
@@ -487,6 +489,11 @@ namespace EnglishTeacher.Controllers
                 _random.GetBytes(data);
                 return HttpServerUtility.UrlTokenEncode(data);
             }
+        }
+        [AllowAnonymous]
+        public void Options()
+        {
+
         }
 
         #endregion

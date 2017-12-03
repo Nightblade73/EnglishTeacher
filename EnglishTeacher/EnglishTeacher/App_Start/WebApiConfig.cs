@@ -1,5 +1,6 @@
 ﻿using System.Web.Http;
 using Microsoft.Owin.Security.OAuth;
+using System.Web.Http.Cors;
 
 namespace EnglishTeacher
 {
@@ -9,7 +10,7 @@ namespace EnglishTeacher
         {
             // Конфигурация и службы Web API
             // Настройка Web API для использования только проверки подлинности посредством маркера-носителя.
-         //   config.EnableCors();
+            config.EnableCors();
             config.SuppressDefaultHostAuthentication();
             config.Filters.Add(new HostAuthenticationFilter(OAuthDefaults.AuthenticationType));
 
