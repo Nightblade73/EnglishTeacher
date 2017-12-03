@@ -22,9 +22,9 @@ $(function () {
     $('#but-Sign-Up').click(function (e) {
         e.preventDefault();
         var data = {
-            Email: $('#InputEmail').val(),
-            Password: $('#InputPassword').val(),
-            ConfirmPassword: $('#InputPasswordConfirmation').val()
+            Email: $('#inputEmail').val(),
+            Password: $('#inputPassword').val(),
+            ConfirmPassword: $('#inputPasswordConfirmation').val()
         };
 
         $.ajax({
@@ -40,7 +40,7 @@ $(function () {
     });
     var tokenKey = "tokenInfo";
 
-    $('#submitLogin').click(function (e) {
+    $('#but-Sign-In').click(function (e) {
         e.preventDefault();
         var loginData = {
             grant_type: 'password',
@@ -53,17 +53,18 @@ $(function () {
             url: 'http://localhost:54049/Token',
             data: loginData
         }).success(function (data) {
-            $('.userName').text(data.userName);
-            $('.userInfo').css('display', 'block');
-            $('.loginForm').css('display', 'none');
+            //$('.userName').text(data.userName);
+            //$('.userInfo').css('display', 'block');
+            //$('.loginForm').css('display', 'none');
+            
             // сохраняем в хранилище sessionStorage токен доступа
             sessionStorage.setItem(tokenKey, data.access_token);
-            console.log(data.access_token);
+            alert('Авторизация прошла успешно');
         }).fail(function (data) {
             alert('При логине возникла ошибка');
         });
     });
-
+    /////////////////////////////////////дальше код, который пока не подключён
     $('#logOut').click(function (e) {
         e.preventDefault();
         sessionStorage.removeItem(tokenKey);

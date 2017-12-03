@@ -34,9 +34,9 @@
                 $.ajax({
                     type: 'POST',
                     url: '/api/Account/Register',
-                    contentType: 'application/jsonp; charset=utf-8',
-                    dataType: 'jsonp',
-                    data: JSONP.stringify(data)                 
+                    contentType: 'application/json; charset=utf-8',
+                    dataType: 'json',
+                    data: JSON.stringify(data)                 
                 }).success(function (data) {
                     alert("Регистрация пройдена");
                 }).fail(function (data) {
