@@ -299,6 +299,8 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Views\Home\autorization.html" />
+    <Content Include="Views\Home\background.html" />
+    <Content Include="Views\Home\main.html" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

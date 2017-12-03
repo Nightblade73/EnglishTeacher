@@ -33,7 +33,8 @@ $(function () {
             contentType: 'application/json; charset=utf-8',
             data: JSON.stringify(data)
         }).success(function (data) {
-            alert("Регистрация пройдена");
+            alert("Всё норм");
+
         }).fail(function (data) {
             alert("В процесе регистрации возникла ошибка");
         });
@@ -53,13 +54,10 @@ $(function () {
             url: 'http://localhost:54049/Token',
             data: loginData
         }).success(function (data) {
-            //$('.userName').text(data.userName);
-            //$('.userInfo').css('display', 'block');
-            //$('.loginForm').css('display', 'none');
-            
-            // сохраняем в хранилище sessionStorage токен доступа
             sessionStorage.setItem(tokenKey, data.access_token);
-            alert('Авторизация прошла успешно');
+            alert('Всё ок');
+            document.location.href = "main.html"
+
         }).fail(function (data) {
             alert('При логине возникла ошибка');
         });
@@ -75,8 +73,8 @@ $(function () {
         $.ajax({
             type: 'GET',
             url: 'http://localhost:54049/api/values/',
-       //     datatype: 'jsonp',
-            beforeSend: function (xhr) {     
+            //     datatype: 'jsonp',
+            beforeSend: function (xhr) {
                 var token = sessionStorage.getItem(tokenKey);
                 console.log(token);
                 xhr.setRequestHeader("Authorization", "Bearer " + token);
