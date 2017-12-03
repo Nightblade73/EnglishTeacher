@@ -19,17 +19,17 @@
 //}, false);
 
 $(function () {
-    $('#submit').click(function (e) {
+    $('#but-Sign-Up').click(function (e) {
         e.preventDefault();
         var data = {
-            Email: $('#email').val(),
-            Password: $('#password').val(),
-            ConfirmPassword: $('#confirmpassword').val()
+            Email: $('#InputEmail').val(),
+            Password: $('#InputPassword').val(),
+            ConfirmPassword: $('#InputPasswordConfirmation').val()
         };
 
         $.ajax({
             type: 'POST',
-            url: '/api/Account/Register',
+            url: 'http://localhost:54049/api/Account/Register',
             contentType: 'application/json; charset=utf-8',
             data: JSON.stringify(data)
         }).success(function (data) {
@@ -39,6 +39,7 @@ $(function () {
         });
     });
     var tokenKey = "tokenInfo";
+
     $('#submitLogin').click(function (e) {
         e.preventDefault();
         var loginData = {
