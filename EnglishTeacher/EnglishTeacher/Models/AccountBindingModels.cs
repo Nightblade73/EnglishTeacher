@@ -81,4 +81,9 @@ namespace EnglishTeacher.Models
         [Compare("NewPassword", ErrorMessage = "Новый пароль и его подтверждение не совпадают.")]
         public string ConfirmPassword { get; set; }
     }
+
+    public class ForgotPasswordViewModel
+    {
+        public string Email { get; set; }
+    }
 }

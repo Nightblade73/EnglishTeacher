@@ -105,3 +105,15 @@ C:\Users\1\Documents\GitHub\EnglishTeacher\EnglishTeacher\EnglishTeacher\bin\Web
 C:\Users\1\Documents\GitHub\EnglishTeacher\EnglishTeacher\EnglishTeacher\bin\System.Web.Cors.dll
 C:\Users\1\Documents\GitHub\EnglishTeacher\EnglishTeacher\EnglishTeacher\bin\System.Web.Http.Cors.dll
 C:\Users\1\Documents\GitHub\EnglishTeacher\EnglishTeacher\EnglishTeacher\bin\System.Web.Http.Cors.xml
+C:\Users\1\Documents\GitHub\EnglishTeacher\EnglishTeacher\EnglishTeacher\bin\Microsoft.AspNet.TelemetryCorrelation.dll
+C:\Users\1\Documents\GitHub\EnglishTeacher\EnglishTeacher\EnglishTeacher\bin\SendGrid.dll
+C:\Users\1\Documents\GitHub\EnglishTeacher\EnglishTeacher\EnglishTeacher\bin\System.Diagnostics.DiagnosticSource.dll
+C:\Users\1\Documents\GitHub\EnglishTeacher\EnglishTeacher\EnglishTeacher\bin\System.Net.Http.dll
+C:\Users\1\Documents\GitHub\EnglishTeacher\EnglishTeacher\EnglishTeacher\bin\System.Security.Cryptography.Algorithms.dll
+C:\Users\1\Documents\GitHub\EnglishTeacher\EnglishTeacher\EnglishTeacher\bin\System.Security.Cryptography.Encoding.dll
+C:\Users\1\Documents\GitHub\EnglishTeacher\EnglishTeacher\EnglishTeacher\bin\System.Security.Cryptography.Primitives.dll
+C:\Users\1\Documents\GitHub\EnglishTeacher\EnglishTeacher\EnglishTeacher\bin\System.Security.Cryptography.X509Certificates.dll
+C:\Users\1\Documents\GitHub\EnglishTeacher\EnglishTeacher\EnglishTeacher\bin\Microsoft.AspNet.TelemetryCorrelation.xml
+C:\Users\1\Documents\GitHub\EnglishTeacher\EnglishTeacher\EnglishTeacher\bin\SendGrid.pdb
+C:\Users\1\Documents\GitHub\EnglishTeacher\EnglishTeacher\EnglishTeacher\bin\SendGrid.xml
+C:\Users\1\Documents\GitHub\EnglishTeacher\EnglishTeacher\EnglishTeacher\bin\System.Diagnostics.DiagnosticSource.xml

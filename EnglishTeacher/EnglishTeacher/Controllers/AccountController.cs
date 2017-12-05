@@ -16,7 +16,9 @@ using Microsoft.Owin.Security.OAuth;
 using EnglishTeacher.Models;
 using EnglishTeacher.Providers;
 using EnglishTeacher.Results;
+using System.Web.Http.Routing;
 using System.Web.Http.Cors;
+using EnglishTeacher.Services;
 
 namespace EnglishTeacher.Controllers
 {
@@ -338,8 +340,69 @@ namespace EnglishTeacher.Controllers
             {
                 return GetErrorResult(result);
             }
+            var code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
+        //    code = HttpUtility.UrlDecode(code);
+
+            string callbackUrl = Url.Link("DefaultApi", new { controller = "Account/ConfirmEmail", userId = user.Id, code = code });
+            try
+            {
+                await UserManager.SendEmailAsync(user.Id, "Подтверждение электронной почты",
+                           "Для завершения регистрации перейдите по ссылке:: <a href=\""
+                                                           + callbackUrl + "\">завершить регистрацию</a>");
+            }
+            catch (Exception ex)
+            {
+
+            }
+            //await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
+
+
 
             return Ok();
+        }
+        [HttpGet]
+        [AllowAnonymous]
+        [Route("ConfirmEmail")]
+        public async Task<IHttpActionResult> ConfirmEmail(string userId, string code)
+        {
+            if (userId == null || code == null)
+            {
+                return NotFound();
+            }
+
+         //   code = HttpUtility.UrlDecode(code);
+
+            var result = await UserManager.ConfirmEmailAsync(userId, code);
+            return Ok(result.Succeeded ? "ConfirmEmail" : "Error");
+        }
+
+        [HttpPost]
+        [AllowAnonymous]
+        [Route("ForgotPassword")]
+        public async Task<IHttpActionResult> ForgotPassword(ForgotPasswordViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var user = await UserManager.FindByNameAsync(model.Email);
+                // If user has to activate his email to confirm his account, the use code listing below
+                //if (user == null || !(await UserManager.IsEmailConfirmedAsync(user.Id)))
+                //{
+                //    return Ok();
+                //}
+                if (user == null)
+                {
+                    return Ok();
+                }
+
+                // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
+                // Send an email with this link
+                string code = await UserManager.GeneratePasswordResetTokenAsync(user.Id);
+                await UserManager.SendEmailAsync(user.Id, "Reset Password", $"Please reset your password by using this {code}");
+                return Ok();
+            }
+
+            // If we got this far, something failed, redisplay form
+            return BadRequest(ModelState);
         }
 
         // POST api/Account/RegisterExternal
