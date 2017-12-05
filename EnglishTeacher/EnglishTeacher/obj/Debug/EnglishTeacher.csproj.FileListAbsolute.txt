@@ -105,3 +105,5 @@ C:\Users\1\Documents\GitHub\EnglishTeacher\EnglishTeacher\EnglishTeacher\bin\Web
 C:\Users\1\Documents\GitHub\EnglishTeacher\EnglishTeacher\EnglishTeacher\bin\System.Web.Cors.dll
 C:\Users\1\Documents\GitHub\EnglishTeacher\EnglishTeacher\EnglishTeacher\bin\System.Web.Http.Cors.dll
 C:\Users\1\Documents\GitHub\EnglishTeacher\EnglishTeacher\EnglishTeacher\bin\System.Web.Http.Cors.xml
+C:\Users\пользователь\Documents\GitHub\EnglishTeacher\EnglishTeacher\EnglishTeacher\obj\Debug\EnglishTeacher.csprojResolveAssemblyReference.cache
+C:\Users\пользователь\Documents\GitHub\EnglishTeacher\EnglishTeacher\EnglishTeacher\obj\Debug\EnglishTeacher.csproj.CoreCompileInputs.cache
