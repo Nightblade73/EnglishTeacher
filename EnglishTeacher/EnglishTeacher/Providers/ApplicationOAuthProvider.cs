@@ -38,6 +38,11 @@ namespace EnglishTeacher.Providers
                 context.SetError("invalid_grant", "Имя пользователя или пароль указаны неправильно.");
                 return;
             }
+            if (!user.EmailConfirmed)
+            {
+                context.SetError("Confirm Email", "Андрес электронной почты не подтверждён.");
+                return;
+            }
 
             ClaimsIdentity oAuthIdentity = await user.GenerateUserIdentityAsync(userManager,
                OAuthDefaults.AuthenticationType);
