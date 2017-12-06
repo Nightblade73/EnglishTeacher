@@ -4,7 +4,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
-    <script src="../../Scripts/jquery-3.2.1.js"></script>
+    <script src="../../Scripts/jquery-1.10.2.js"></script>
     <script src="../../Scripts/popup.js"></script>
     <script src="../../Scripts/bootstrap.min.js"></script>
     <link href="../../Content/bootstrap.min.css" rel="stylesheet" />
@@ -13,24 +13,24 @@
 </head>
 <body>
     <div class="container container-no-padding">
-        <div class="row" >
-            <div class="col-md-offset-3 col-md-6" id="main-section">
-                <div class="tab" role="tabpanel" >
+        <div class="row">
+            <div class="col-md-offset-3 col-md-6">
+                <div class="tab" role="tabpanel">
                     <!-- Nav tabs -->
                     <ul class="nav nav-tabs" role="tablist">
-                        <li role="presentation" class="active"><a href="#Sign-In" aria-controls="home" role="tab" data-toggle="tab">sign in</a></li>
-                        <li role="presentation"><a href="#Sign-Up" aria-controls="profile" role="tab" data-toggle="tab">sign up</a></li>
+                        <li role="presentation" class="active"><a href="#Sign-In" aria-controls="home" role="tab" data-toggle="tab">Войти</a></li>
+                        <li role="presentation"><a href="#Sign-Up" aria-controls="profile" role="tab" data-toggle="tab">Зарегистрироваться</a></li>
                     </ul>
                     <!-- Tab panes -->
                     <div class="tab-content tabs">
                         <div role="tabpanel" class="tab-pane fade in active" id="Sign-In">
-                            <div class="form-horizontal" id="form">
+                            <form action="main.html" class="form-horizontal" id="form">
                                 <div class="form-group">
-                                    <label for="emailLogin">username</label>
+                                    <label for="emailLogin">Имя пользователя</label>
                                     <input type="email" class="form-control" id="emailLogin">
                                 </div>
                                 <div class="form-group">
-                                    <label for="passwordLogin">Password</label>
+                                    <label for="passwordLogin">Пароль</label>
                                     <input type="password" class="form-control" id="passwordLogin">
                                 </div>
                                 <div class="form-group">
@@ -38,15 +38,15 @@
                                         <input value="None" id="checkbox1" name="check" type="checkbox">
                                         <label for="checkbox1"></label>
                                     </div>
-                                    <span class="text">Keep me Signed in</span>
+                                    <span class="text">Запомнить</span>
                                 </div>
                                 <div class="form-group">
-                                    <button type="submit" class="btn btn-default" id="but-Sign-In">Sign in</button>
+                                    <button type="submit" class="btn btn-default" id="but-Sign-In">Войти</button>
                                 </div>
                                 <div class="form-group forgot-pass">
-                                    <button type="submit" class="btn btn-default" id="forgot-pass">forgot password</button>
+                                    <button type="submit" class="btn btn-default">Забыли пароль?</button>
                                 </div>
-                            </div>
+                            </form>
                         </div>
                         <div role="tabpanel" class="tab-pane fade" id="Sign-Up">
                             <form class="form-horizontal">
@@ -59,29 +59,26 @@
                                     <input type="text" class="form-control" id="exampleInputEmail1">
                                 </div>-->
                                 <div class="form-group">
-                                    <label for="inputEmail">Email address</label>
+                                    <label for="inputEmail">Ваш Email</label>
                                     <input type="email" class="form-control" id="inputEmail">
                                 </div>
                                 <div class="form-group">
-                                    <label for="inputPassword">Password</label>
+                                    <label for="inputPassword">Пароль</label>
                                     <input type="password" class="form-control" id="inputPassword">
                                 </div>
                                 <div class="form-group">
-                                    <label for="inputPasswordConfirmation">Password confirmation</label>
+                                    <label for="inputPasswordConfirmation">Подтверждение пароля</label>
                                     <input type="password" class="form-control" id="inputPasswordConfirmation">
                                 </div>
                                 <div class="form-group">
-                                    <button type="submit" class="btn btn-default" id="but-Sign-Up">Sign up</button>
+                                    <button type="submit" class="btn btn-default" id="but-Sign-Up">Зарегистрироваться</button>
                                 </div>
                             </form>
                         </div>
                     </div>
                 </div>
-                
+
             </div><!-- /.col-md-offset-3 col-md-6 -->
-            <div id="add-section" style="display:none">
-                <button type="submit" class="btn btn-default" id="but-Sign-Up">Sign up</button>
-            </div>
         </div><!-- /.row -->
     </div><!-- /.container -->
 </body>
