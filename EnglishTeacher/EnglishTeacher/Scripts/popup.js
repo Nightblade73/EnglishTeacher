@@ -62,6 +62,11 @@ $(function () {
             alert('При логине возникла ошибка');
         });
     });
+
+    $('#forgot-pass').click(function () {
+        $("#main-section").fadeOut('slow');
+     //   $("#add-section").fadeIn('slow');
+    });
     /////////////////////////////////////дальше код, который пока не подключён
     $('#logOut').click(function (e) {
         e.preventDefault();

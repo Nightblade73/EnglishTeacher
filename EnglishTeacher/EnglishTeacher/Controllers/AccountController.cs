@@ -24,7 +24,7 @@ namespace EnglishTeacher.Controllers
 {
     [Authorize]
     [RoutePrefix("api/Account")]
-   // [EnableCors(origins: "*", headers: "*", methods: "*")]
+    // [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class AccountController : ApiController
     {
         private const string LocalLoginProvider = "Local";
@@ -129,7 +129,7 @@ namespace EnglishTeacher.Controllers
 
             IdentityResult result = await UserManager.ChangePasswordAsync(User.Identity.GetUserId(), model.OldPassword,
                 model.NewPassword);
-            
+
             if (!result.Succeeded)
             {
                 return GetErrorResult(result);
@@ -140,14 +140,14 @@ namespace EnglishTeacher.Controllers
 
         // POST api/Account/SetPassword
         [Route("SetPassword")]
-        public async Task<IHttpActionResult> SetPassword(SetPasswordBindingModel model)
+        public async Task<IHttpActionResult> SetPassword(string userID, SetPasswordBindingModel model)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            IdentityResult result = await UserManager.AddPasswordAsync(User.Identity.GetUserId(), model.NewPassword);
+            IdentityResult result = await UserManager.AddPasswordAsync(userID, model.NewPassword);
 
             if (!result.Succeeded)
             {
@@ -262,9 +262,9 @@ namespace EnglishTeacher.Controllers
             if (hasRegistered)
             {
                 Authentication.SignOut(DefaultAuthenticationTypes.ExternalCookie);
-                
-                 ClaimsIdentity oAuthIdentity = await user.GenerateUserIdentityAsync(UserManager,
-                    OAuthDefaults.AuthenticationType);
+
+                ClaimsIdentity oAuthIdentity = await user.GenerateUserIdentityAsync(UserManager,
+                   OAuthDefaults.AuthenticationType);
                 ClaimsIdentity cookieIdentity = await user.GenerateUserIdentityAsync(UserManager,
                     CookieAuthenticationDefaults.AuthenticationType);
 
@@ -331,9 +331,7 @@ namespace EnglishTeacher.Controllers
             {
                 return BadRequest(ModelState);
             }
-
             var user = new ApplicationUser() { UserName = model.Email, Email = model.Email };
-
             IdentityResult result = await UserManager.CreateAsync(user, model.Password);
 
             if (!result.Succeeded)
@@ -341,25 +339,14 @@ namespace EnglishTeacher.Controllers
                 return GetErrorResult(result);
             }
             var code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
-        //    code = HttpUtility.UrlDecode(code);
-
             string callbackUrl = Url.Link("DefaultApi", new { controller = "Account/ConfirmEmail", userId = user.Id, code = code });
-            try
-            {
-                await UserManager.SendEmailAsync(user.Id, "Подтверждение электронной почты",
-                           "Для завершения регистрации перейдите по ссылке:: <a href=\""
-                                                           + callbackUrl + "\">завершить регистрацию</a>");
-            }
-            catch (Exception ex)
-            {
-
-            }
-            //await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
-
-
-
+            await UserManager.SendEmailAsync(user.Id, "Подтверждение электронной почты",
+                       "Для завершения регистрации перейдите по ссылке:: <a href=\""
+                                                       + callbackUrl + "\">завершить регистрацию</a>");
             return Ok();
         }
+
+        // GET api/Account/ConfirmEmail
         [HttpGet]
         [AllowAnonymous]
         [Route("ConfirmEmail")]
@@ -369,17 +356,15 @@ namespace EnglishTeacher.Controllers
             {
                 return NotFound();
             }
-
-         //   code = HttpUtility.UrlDecode(code);
-
             var result = await UserManager.ConfirmEmailAsync(userId, code);
             return Ok(result.Succeeded ? "ConfirmEmail" : "Error");
         }
 
+        // POST api/Account/ForgotPassword
         [HttpPost]
         [AllowAnonymous]
         [Route("ForgotPassword")]
-        public async Task<IHttpActionResult> ForgotPassword(ForgotPasswordViewModel model)
+        public async Task<IHttpActionResult> ForgotPassword(ForgotPasswordBindingModel model)
         {
             if (ModelState.IsValid)
             {
@@ -388,21 +373,47 @@ namespace EnglishTeacher.Controllers
                 //if (user == null || !(await UserManager.IsEmailConfirmedAsync(user.Id)))
                 //{
                 //    return Ok();
-                //}
+                //}      
                 if (user == null)
                 {
                     return Ok();
                 }
-
                 // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
-                // Send an email with this link
-                string code = await UserManager.GeneratePasswordResetTokenAsync(user.Id);
-                await UserManager.SendEmailAsync(user.Id, "Reset Password", $"Please reset your password by using this {code}");
+                // Send an email with this link                
+                var modelPassword = new SetPasswordBindingModel();
+                modelPassword.NewPassword = PasswordGeneratorService.GeneratePassword(6);
+                modelPassword.ConfirmPassword = modelPassword.NewPassword;
+                var result = SetPassword(user.Id,modelPassword);
+                await UserManager.SendEmailAsync(user.Id, "Сброс пароля", $"Ваш новый пароль::" + modelPassword.NewPassword );
                 return Ok();
             }
 
             // If we got this far, something failed, redisplay form
             return BadRequest(ModelState);
+        }
+
+        // POST api/Account/ResetPassword
+        [HttpPost]
+        [AllowAnonymous]
+        [Route("ResetPassword")]
+        public async Task<IHttpActionResult> ResetPassword(ResetPasswordBindingModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            var user = await UserManager.FindByNameAsync(model.Email);
+            if (user == null)
+            {
+                // Don't reveal that the user does not exist
+                return Ok();
+            }
+            var result = await UserManager.ResetPasswordAsync(user.Id, model.Code, model.Password);
+            if (result.Succeeded)
+            {
+                return Ok();
+            }
+            return Ok();
         }
 
         // POST api/Account/RegisterExternal
@@ -433,7 +444,7 @@ namespace EnglishTeacher.Controllers
             result = await UserManager.AddLoginAsync(user.Id, info.Login);
             if (!result.Succeeded)
             {
-                return GetErrorResult(result); 
+                return GetErrorResult(result);
             }
             return Ok();
         }

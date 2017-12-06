@@ -82,8 +82,16 @@ namespace EnglishTeacher.Models
         public string ConfirmPassword { get; set; }
     }
 
-    public class ForgotPasswordViewModel
+    public class ForgotPasswordBindingModel
     {
         public string Email { get; set; }
+    }
+
+    public class ResetPasswordBindingModel
+    {
+        public string Code { get; set; }
+        public string ConfirmPassword { get; set; }
+        public string Email { get; set; }
+        public string Password { get; set; }
     }
 }

@@ -13,9 +13,9 @@
 </head>
 <body>
     <div class="container container-no-padding">
-        <div class="row">
+        <div class="row" id="main-section">
             <div class="col-md-offset-3 col-md-6">
-                <div class="tab" role="tabpanel">
+                <div class="tab" role="tabpanel" >
                     <!-- Nav tabs -->
                     <ul class="nav nav-tabs" role="tablist">
                         <li role="presentation" class="active"><a href="#Sign-In" aria-controls="home" role="tab" data-toggle="tab">sign in</a></li>
@@ -24,7 +24,7 @@
                     <!-- Tab panes -->
                     <div class="tab-content tabs">
                         <div role="tabpanel" class="tab-pane fade in active" id="Sign-In">
-                            <form action="main.html" class="form-horizontal" id="form">
+                            <form class="form-horizontal" id="form">
                                 <div class="form-group">
                                     <label for="emailLogin">username</label>
                                     <input type="email" class="form-control" id="emailLogin">
@@ -44,7 +44,7 @@
                                     <button type="submit" class="btn btn-default" id="but-Sign-In">Sign in</button>
                                 </div>
                                 <div class="form-group forgot-pass">
-                                    <button type="submit" class="btn btn-default">forgot password</button>
+                                    <button type="submit" class="btn btn-default" id="forgot-pass">forgot password</button>
                                 </div>
                             </form>
                         </div>
@@ -77,8 +77,11 @@
                         </div>
                     </div>
                 </div>
-
+                <div id="add-section" style="display:none">
+                    <h1>text</h1>
+                </div>
             </div><!-- /.col-md-offset-3 col-md-6 -->
+
         </div><!-- /.row -->
     </div><!-- /.container -->
 </body>
