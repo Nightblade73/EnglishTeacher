@@ -35,14 +35,7 @@ namespace EnglishTeacher.Services
                     Message.Subject = message.Subject;
                     Message.Body = message.Body;
                     Message.IsBodyHtml = true;
-                    try
-                    {
-                        Smtp.Send(Message);
-                    }
-                    catch (SmtpException ex)
-                    {
-                        Console.WriteLine(ex.Message);
-                    }
+                    Smtp.Send(Message);
                 }
             }
 
