@@ -31,12 +31,14 @@ $(function () {
             type: 'POST',
             url: 'http://localhost:54049/api/Account/Register/',
             contentType: 'application/json; charset=utf-8',
-            data: JSON.stringify(data)
-        }).success(function (data) {
-            alert("Всё норм");
+            data: JSON.stringify(data),
+            success: function (data) {
+                alert("Всё норм");
 
-        }).fail(function (data) {
-            alert("В процесе регистрации возникла ошибка");
+            },
+            fail: function (data) {
+                alert("В процесе регистрации возникла ошибка");
+            }
         });
     });
     var tokenKey = "tokenInfo";
@@ -52,20 +54,21 @@ $(function () {
         $.ajax({
             type: 'POST',
             url: 'http://localhost:54049/Token',
-            data: loginData
-        }).success(function (data) {
-            sessionStorage.setItem(tokenKey, data.access_token);
-            alert('Всё ок');
-            document.location.href = "main.html"
-
-        }).fail(function (data) {
-            alert('При логине возникла ошибка');
+            data: loginData,
+            success: function (data) {
+                sessionStorage.setItem(tokenKey, data.access_token);
+                alert('Всё ок');
+                document.location.href = "main.html"
+            },
+            fail: function (data) {
+                alert('При логине возникла ошибка');
+            }
         });
     });
 
     $('#forgot-pass').click(function () {
         $("#main-section").fadeOut('slow');
-     //   $("#add-section").fadeIn('slow');
+        $("#add-section").fadeIn('slow');
     });
     /////////////////////////////////////дальше код, который пока не подключён
     $('#logOut').click(function (e) {
@@ -73,25 +76,25 @@ $(function () {
         sessionStorage.removeItem(tokenKey);
     });
 
-    $('#getItemsButton').click(function (e) {
-        e.preventDefault();
-        $.ajax({
-            type: 'GET',
-            url: 'http://localhost:54049/api/values/',
-            //     datatype: 'jsonp',
-            beforeSend: function (xhr) {
-                var token = sessionStorage.getItem(tokenKey);
-                console.log(token);
-                xhr.setRequestHeader("Authorization", "Bearer " + token);
-            },
-            success: function (data) {
-                alert(data);
-            },
-            error: function (jqXHR, textStatus, errorThrown) {
-                alert(jqXHR.responseText || textStatus);
-            }
-        });
-    });
+    //$('#getItemsButton').click(function (e) {
+    //    e.preventDefault();
+    //    $.ajax({
+    //        type: 'GET',
+    //        url: 'http://localhost:54049/api/values/',
+    //        //     datatype: 'jsonp',
+    //        beforeSend: function (xhr) {
+    //            var token = sessionStorage.getItem(tokenKey);
+    //            console.log(token);
+    //            xhr.setRequestHeader("Authorization", "Bearer " + token);
+    //        },
+    //        success: function (data) {
+    //            alert(data);
+    //        },
+    //        error: function (jqXHR, textStatus, errorThrown) {
+    //            alert(jqXHR.responseText || textStatus);
+    //        }
+    //    });
+    //});
 })
 //document.addEventListener('DOMContentLoaded', function () {
 //    document.querySelector('#submitLogin').addEventListener('click', clickHandler);
