@@ -3,8 +3,6 @@ C:\Users\1\Documents\GitHub\EnglishTeacher\EnglishTeacher\EnglishTeacher\bin\Eng
 C:\Users\1\Documents\GitHub\EnglishTeacher\EnglishTeacher\EnglishTeacher\bin\EnglishTeacher.dll
 C:\Users\1\Documents\GitHub\EnglishTeacher\EnglishTeacher\EnglishTeacher\bin\EnglishTeacher.pdb
 C:\Users\1\Documents\GitHub\EnglishTeacher\EnglishTeacher\EnglishTeacher\bin\Antlr3.Runtime.dll
-C:\Users\1\Documents\GitHub\EnglishTeacher\EnglishTeacher\EnglishTeacher\bin\EntityFramework.dll
-C:\Users\1\Documents\GitHub\EnglishTeacher\EnglishTeacher\EnglishTeacher\bin\EntityFramework.SqlServer.dll
 C:\Users\1\Documents\GitHub\EnglishTeacher\EnglishTeacher\EnglishTeacher\bin\Microsoft.AI.Agent.Intercept.dll
 C:\Users\1\Documents\GitHub\EnglishTeacher\EnglishTeacher\EnglishTeacher\bin\Microsoft.AI.DependencyCollector.dll
 C:\Users\1\Documents\GitHub\EnglishTeacher\EnglishTeacher\EnglishTeacher\bin\Microsoft.AI.PerfCounterCollector.dll
@@ -13,7 +11,6 @@ C:\Users\1\Documents\GitHub\EnglishTeacher\EnglishTeacher\EnglishTeacher\bin\Mic
 C:\Users\1\Documents\GitHub\EnglishTeacher\EnglishTeacher\EnglishTeacher\bin\Microsoft.AI.WindowsServer.dll
 C:\Users\1\Documents\GitHub\EnglishTeacher\EnglishTeacher\EnglishTeacher\bin\Microsoft.ApplicationInsights.dll
 C:\Users\1\Documents\GitHub\EnglishTeacher\EnglishTeacher\EnglishTeacher\bin\Microsoft.AspNet.Identity.Core.dll
-C:\Users\1\Documents\GitHub\EnglishTeacher\EnglishTeacher\EnglishTeacher\bin\Microsoft.AspNet.Identity.EntityFramework.dll
 C:\Users\1\Documents\GitHub\EnglishTeacher\EnglishTeacher\EnglishTeacher\bin\Microsoft.AspNet.Identity.Owin.dll
 C:\Users\1\Documents\GitHub\EnglishTeacher\EnglishTeacher\EnglishTeacher\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 C:\Users\1\Documents\GitHub\EnglishTeacher\EnglishTeacher\EnglishTeacher\bin\Microsoft.Owin.dll

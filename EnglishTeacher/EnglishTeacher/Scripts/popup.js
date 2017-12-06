@@ -58,7 +58,7 @@ $(function () {
             success: function (data) {
                 sessionStorage.setItem(tokenKey, data.access_token);
                 alert('Всё ок');
-                document.location.href = "main.html"
+                document.location.href = "main.html";
             },
             fail: function (data) {
                 alert('При логине возникла ошибка');
@@ -95,7 +95,7 @@ $(function () {
     //        }
     //    });
     //});
-})
+});
 //document.addEventListener('DOMContentLoaded', function () {
 //    document.querySelector('#submitLogin').addEventListener('click', clickHandler);
 //    main();
