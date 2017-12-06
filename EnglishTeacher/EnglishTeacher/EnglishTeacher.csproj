@@ -261,6 +261,10 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="icon.png" />
+    <Content Include="img\cross.ico" />
+    <Content Include="img\set.ico" />
+    <Content Include="img\room2.jpg" />
+    <Content Include="img\tick.ico" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Areas\HelpPage\Views\Web.config" />
@@ -298,9 +302,11 @@
     <Content Include="Scripts\popup.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\select_demo2.js" />
     <Content Include="Views\Home\autorization.html" />
     <Content Include="Views\Home\background.html" />
     <Content Include="Views\Home\main.html" />
+    <Content Include="Views\Home\settings.html" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
